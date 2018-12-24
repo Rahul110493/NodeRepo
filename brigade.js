@@ -13,7 +13,6 @@ events.on("push", function(e, project) {
   nodedeploy.tasks = [
     "cd /src/",
     "npm install",
-    "sleep 20",
     "npm start"
   ]
 
