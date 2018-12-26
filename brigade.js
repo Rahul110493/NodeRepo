@@ -1,7 +1,7 @@
 const { events, Job } = require("brigadier");
 
 
-events.on("push", function(e, project) {
+events.on("push", (brigadeEvent, project) => {
  console.log("received push for commit " + e.revision.commit)
 
     var gitPayload = JSON.parse(brigadeEvent.payload)
