@@ -25,7 +25,7 @@ events.on("push", (brigadeEvent, project) => {
     "dockerd-entrypoint.sh &", // Start the docker daemon
     "sleep 20", // Grant it enough time to be up and running
     "cd /src/", // Go to the project checkout dir
-    "docker build -t $GCR_REPONAME/$GCR_IMAGE"+imageTag+" .", // Replace with your own image tag
+    "docker build -t $GCR_REPONAME/$GCR_IMAGE:"+imageTag+" .", // Replace with your own image tag
     "docker login $GCR_REPONAME -u $DOCKER_USER -p $DOCKER_PASS",
     "docker push $GCR_REPONAME/$GCR_IMAGE:"+imageTag+"" // Replace with your own image tag
   ]
