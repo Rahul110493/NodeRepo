@@ -36,13 +36,13 @@ events.on("push", function(e, project) {
   nodedeploy.image = "microsoft/azure-cli:latest"
  
 
-  deploy.env.SERVICE_USER = project.secrets.serviceuser
-  deploy.env.SERVICE_PASS = project.secrets.servicepass
-  deploy.env.SERVICETENANT = project.secrets.servicetenant
-  deploy.env.GCR_REPONAME = project.secrets.mygcr
-  deploy.env.GCR_IMAGE = project.secrets.gcrimage
+  nodedeploy.env.SERVICE_USER = project.secrets.serviceuser
+  nodedeploy.env.SERVICE_PASS = project.secrets.servicepass
+  nodedeploy.env.SERVICETENANT = project.secrets.servicetenant
+  nodedeploy.env.GCR_REPONAME = project.secrets.mygcr
+  nodedeploy.env.GCR_IMAGE = project.secrets.gcrimage
 
-  deploy.tasks = [
+  nodedeploy.tasks = [
   "curl -L https://dl.k8s.io/v1.10.6/bin/linux/amd64/kubectl -o /usr/local/bin/kubectl",
   "sleep 90",
   "cd /usr/local/bin",
@@ -52,7 +52,7 @@ events.on("push", function(e, project) {
   "kubectl set image deployment/nginx nginx=$GCR_REPONAME/$GCR_IMAGE:latest"
   ]
 
-  deploy.run()
+  nodedeploy.run()
 
 
 
