@@ -1,7 +1,8 @@
 FROM node:10.13.0-slim
-COPY package*.json ./
+RUN mkdir ./src
+COPY package*.json /src/
 RUN npm install
-COPY . .
+COPY . /src/
 EXPOSE 5000
 CMD [ "npm", "start" ]
 
