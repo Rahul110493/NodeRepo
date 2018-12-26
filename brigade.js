@@ -44,7 +44,7 @@ events.on("push", function(e, project) {
 
   nodedeploy.tasks = [
   "curl -L https://dl.k8s.io/v1.10.6/bin/linux/amd64/kubectl -o /usr/local/bin/kubectl",
-  "sleep 90",
+  "sleep 100",
   "cd /usr/local/bin",
   "chmod -R 775 kubectl",
   "az login --service-principal -u $SERVICE_USER -p $SERVICE_PASS --tenant $SERVICETENANT",
