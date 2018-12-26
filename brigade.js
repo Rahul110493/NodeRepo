@@ -4,7 +4,10 @@ const { events, Job } = require("brigadier");
 events.on("push", function(e, project) {
  console.log("received push for commit " + e.revision.commit)
 
-
+    var gitPayload = JSON.parse(brigadeEvent.payload)
+    var today = new Date()
+    var gitSHA = brigadeEvent.revision.commit.substr(0,7)
+    var imageTag = String(gitSHA)
     // Create a new job
   var dockerBuild = new Job("docker-build")
 
